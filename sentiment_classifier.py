@@ -1,11 +1,6 @@
 
 punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
 
-
-def read_csv(file_name):
-    # takes a str as the filename input
-    return file_name
-
 # list of positive words to use
 positive_words = []
 with open("positive_words.txt") as pos_f:
@@ -68,7 +63,7 @@ def process_tweet(in_line):
     return format_out(tweet_metrics + sent_metrics)
     
 
-header = "Number of Retweets,Number of Replies,Positive Score,Negative Score,Net Score"
+header = "Number of Retweets, Number of Replies, Positive Score, Negative Score, Net Score"
 with open('resulting_data.csv', 'w') as results:
     results.write(header)
     results.write('\n')
