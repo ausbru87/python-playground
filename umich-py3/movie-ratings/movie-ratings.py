@@ -3,10 +3,11 @@ import json
 
 def get_movies_from_tastedive(movie):
     endpoint = "https://tastedive.com/api/similar"
-    params = {}
-    params['type'] = 'movies'
-    params['limit'] = '5'
-    params['q'] = movie
+    params = {
+        'type': 'movies',
+        'limit': '5',
+        'q': movie
+    }
     resp = requests_with_caching.get(endpoint, params)
     return resp.json()
 
@@ -24,9 +25,10 @@ def get_related_titles(in_movie_lst):
 
 def get_movie_data(movie):
     endpoint = "http://www.omdbapi.com/"
-    params = {}
-    params['t'] = movie
-    params['r'] = 'json'
+    params = {
+        't': movie,
+        'r': 'json'
+    }
     resp = requests_with_caching.get(endpoint, params)
     return resp.json()
 
