@@ -8,8 +8,7 @@ def get_movies_from_tastedive(movie):
     params['limit'] = '5'
     params['q'] = movie
     resp = requests_with_caching.get(endpoint, params)
-    movies_results = resp.json()
-    return movies_results
+    return resp.json()
 
 def extract_movie_titles(movie_json):
     return [movie['Name'] for movie in movie_json['Similar']['Results']]
